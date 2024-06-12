@@ -107,14 +107,9 @@ console.log('Exercise 2 Correct Result: ',
 
 // 3. Sort the inventors by birth date in ascending order (from those born furthest in the past to those born most recently).
 // let's sort the inventors from oldest to youngest
-let sortedByBirthYear = inventors.sort(function(a, b) {
-  if(a.year > b.year) {
-    return 1;
-  } else {
-    return -1;
-  }
-});
-const sortedByYear = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+
+const sortedByBirthYear = inventors.sort((a, b) => a.year - b.year)
+
 console.log(sortedByBirthYear);
 
 // Enter your solution code here:
@@ -148,8 +143,8 @@ console.log('Exercise 3 Correct Result: ',
 // -  Utilize the Array.prototype.find() method to locate the object for the inventor named 'Ada'.
 // -  Assign the found inventor object to the variable 'inventorNamedAda'
 
-let inventorNamedAda = inventors.find(function(Ada) {
-  return inventors.name === 'Ada';
+let inventorNamedAda = inventors.find(function(inventor) {
+  return inventor.first === 'Ada';
 });
 
 console.log(inventorNamedAda);
@@ -288,14 +283,11 @@ console.log('Exercise 8 Correct Result: ', { text: 'Super good', id: 823423 })
 
 let idx = null
 
-for (let i = 0; i < comments.length; i++) {
-    if (comments[i].id === 123523) {
-        idx = i;
-        break;
-    }
+function getComments (comments) {
+  return comments.id === 123523
 }
 
-console.log(idx); 
+ idx = (comments.findIndex(getComments));
 
 // Check your return value:
 console.log('Exercise 9 My Result: ', idx)
